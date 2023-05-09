@@ -790,7 +790,9 @@ function debug() {
     console.log(inventory);
 }
 
-if(localStorage.getItem(lsWorld)) {
+if(window.location.search.startsWith('?load=')) {
+    loadFromUrl(window.location.search.substr(6));
+} else if(localStorage.getItem(lsWorld)) {
     updateOutput('Loading world from storage');
     importWorldData(localStorage.getItem(lsWorld),localStorage.getItem(lsLoc));
     var lsInv = localStorage.getItem(lsInventory);
