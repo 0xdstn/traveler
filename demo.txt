@@ -1,0 +1,84 @@
+~ 0,0
++ Landing Room
+& An ordinary room with a @lamp and a #ghost./Also #dustin is standing near you. Like, way too close.
+@ sign
+@ lamp
+@ chest
+# ghost
+# dustin
+% w:west-key
+
+~ -1,0
++ West room
+& Another ordinary room. You see a table with a @nintendo and a @lamp
+> n:10,10
+@ nintendo
+@ lamp 
+
+~ 10,10
++ Hidden room
+& A room full of ghosts! Get out quick!
+> s:-1,0
+# ghost
+
+# ghost
++ Ghost
+& A spooky ghost
+! talk
+  ECHO OOooooooooOoOoOoooohhhhhhhhh...
+
+# dustin 
++ Dustin 
+& Some software engineer
+
+@ nintendo
++ Nintendo
+& An original Nintendo system hooked up to a CRT television.
+! play
+  ECHO You turn on the Nintendo and play level 1-1 of Super Mario Bros.
+  ECHO You remember that you've always been terrible at this game when you die from the first goomba you see.
+  ECHO You turn off the Nintendo.
+
+@ sign
++ wooden sign
+& A wooden sign. It says "It's dangerous to go alone. Try opening the chest".
+
+@ sword
++ sword of mediocrity
+& An impressively normal sword
+
+@ shield 
++ wooden shield
+& A wooden shield with a red Kokiri emblem on it
+
+@ west-key
++ west room key
+& A small golden key with a "W" engraved into it
+
+@ chest
++ wooden chest
+& A wooden chest in questionable condition
+$ opened = false
+! open
+  IF    $opened = true 
+  ECHO  The chest is empty
+  ELSE
+  SET   $opened = true
+  GRAB  sword
+  GRAB  shield
+  GRAB  west-key
+  ENDIF
+
+@ lamp
++ lamp
+& An ordinary lamp with a switch. It is currently $power.
+^ false
+$ power = on
+! switch
+  IF    $power = on
+  SET   $power = off
+  ECHO  You turned off the lamp
+  ELSE
+  SET   $power = on
+  ECHO  You turned on the lamp
+  ENDIF

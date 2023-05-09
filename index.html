@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="main.css" />
+        <title>The Traveler</title>
+    </head>
+    <body>
+        <header>
+            <h1>The Traveler</h1>
+            <span id="loc">0,0</span>
+        </header>
+        <div id="output">
+            Welcome traveler! Submit a command below. Type "help" for more information.
+        </div>
+        <div id="input">
+            <label for="input-text">&gt;</label>
+            <input type="text" id="input-text" spellcheck="false" placeholder="Enter a command...">
+            <input type="button" id="input-submit" value="->">
+        </div>
+        <input type="file" style="display: none" id="upload-file" accept=".txt" onchange="importFile()">
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>

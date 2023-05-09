@@ -1,0 +1,73 @@
+body,html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    display: flex;
+    font-family: 'Fira Code', monospace;
+    font-size: 18px;
+    flex-direction: column;
+    padding: 1em;
+}
+
+input {
+    font-family: 'Fira Code', monospace;
+    font-size: 1em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+header h1 {
+    font-size: 1em;
+    margin: 0;
+    flex-grow: 0;
+    padding-bottom: 1em;
+}
+
+#output {
+    font-size: 1em;
+    flex-grow: 1;
+    padding-top: 1em;
+    overflow-y: scroll;
+}
+
+#input {
+    display: flex;
+    padding-top: 1em;
+    font-weight: 700;
+}
+
+#input label {
+    align-self: center;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#input #input-text {
+    border: 0;
+    flex-grow: 1;
+    margin-left: 1em;
+    margin-right: 1em;
+    outline: none;
+    width: auto;
+}
+
+#input #input-submit {
+    background: #ccc;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: .5em;
+}
+
+em {
+    color: #777;
+}
