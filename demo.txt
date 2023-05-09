@@ -72,7 +72,6 @@ $ opened = false
 @ lamp
 + Lamp
 & An ordinary lamp with a switch. It is currently $power.
-^ false
 $ power = on
 ! switch
   IF    $power = on
