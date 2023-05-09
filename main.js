@@ -204,7 +204,6 @@ function runAction(lines,key) {
                 grab(l.substr(6),true);
             } else if(l.startsWith('SET')) {
                 const sp = l.substr(7).split(' = ');
-                console.log('SET',sp);
                 objects[key].variables[sp[0]] = sp[1];
             } else if(l.startsWith('IF')) {
                 inIf = true;
@@ -407,7 +406,6 @@ function remove(cmd) {
 
 function removeRoom() {
     delete rooms[loc];
-    console.log('GOING TO',Object.keys(rooms)[0]);
     const keys = Object.keys(rooms);
     if(keys.length) {
         goCoord(keys[0]);
@@ -773,7 +771,6 @@ function showInventory() {
     inventory.forEach(o => {
         out += '- ' + objects[o].name + ' (' + o + ')<br>';
     });
-    console.log(out.length);
     if(out.length) {
         out = out.substr(0,out.length-4);
         updateOutput(out);

@@ -1,6 +1,6 @@
 ~ 0,0
 + Landing Room
-& An ordinary room with a @lamp and a #ghost./Also #dustin is standing near you. Like, way too close.
+& An ordinary room with a @sign, a @chest, and a #ghost./Also #dustin is standing near you. Like, way too close.
 @ sign
 @ lamp
 @ chest
@@ -16,7 +16,7 @@
 @ lamp 
 
 ~ 10,10
-+ Hidden room
++ Haunted room
 & A room full of ghosts! Get out quick!
 > s:-1,0
 # ghost
@@ -44,19 +44,19 @@
 & A wooden sign. It says "It's dangerous to go alone. Try opening the chest".
 
 @ sword
-+ sword of mediocrity
++ Sword of Mediocrity
 & An impressively normal sword
 
 @ shield 
-+ wooden shield
++ Wooden Shield
 & A wooden shield with a red Kokiri emblem on it
 
 @ west-key
-+ west room key
++ West Room Key
 & A small golden key with a "W" engraved into it
 
 @ chest
-+ wooden chest
++ Wooden Chest
 & A wooden chest in questionable condition
 $ opened = false
 ! open
@@ -70,7 +70,7 @@ $ opened = false
   ENDIF
 
 @ lamp
-+ lamp
++ Lamp
 & An ordinary lamp with a switch. It is currently $power.
 ^ false
 $ power = on
