@@ -21,6 +21,12 @@
 > s:-1,0
 # ghost
 
+~ 11,10
++ Chest room
+& A room with a @locked-chest sitting in the middle. An @chest-key sits near it on the floor.
+@ locked-chest
+@ chest-key
+
 # ghost
 + Ghost
 & A spooky ghost
@@ -67,6 +73,27 @@ $ opened = false
   GRAB  sword
   GRAB  shield
   GRAB  west-key
+  ENDIF
+
+@ chest-key
++ Old Key
+& An old rusty key. It seems like it will crumble at any moment.
+
+@ orb
++ Orb
+& A mystical orb that seems to be pulsing with magic
+
+@ locked-chest
++ Locked Chest
+& An old chest with a rusty lock.
+! open
+  IF    INVENTORY=chest-key
+  ECHO  You insert the key into the chest and turn it. It unlocks, however the key crumbles into dust.
+  ECHO  You remove a glowing orb from the chest. The chest immediately slams shut and locks with a click.
+  GRAB  orb
+  TAKE  chest-key
+  ELSE
+  ECHO  The chest is locked
   ENDIF
 
 @ lamp

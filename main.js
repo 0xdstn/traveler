@@ -202,6 +202,8 @@ function runAction(lines,key) {
                 updateOutput(l.substr(5));
             } else if(l.startsWith('GRAB')) {
                 grab(l.substr(6),true);
+            } else if(l.startsWith('TAKE')) {
+                take(l.substr(6));
             } else if(l.startsWith('SET')) {
                 const sp = l.substr(7).split(' = ');
                 objects[key].variables[sp[0]] = sp[1];
@@ -572,13 +574,13 @@ function lookRoom() {
     }
 
     rooms[loc].teleports.forEach(t => {
-        if( t[0] === 'n' ) {
+        if( t[0] === 'n' && !exits.includes('north') ) {
             exits.push('north');
-        } else if( t[0] === 'e' ) {
+        } else if( t[0] === 'e' && !exits.includes('east') ) {
             exits.push('east');
-        } else if( t[0] === 's' ) {
+        } else if( t[0] === 's' && !exits.includes('south') ) {
             exits.push('south');
-        } else if( t[0] === 'w' ) {
+        } else if( t[0] === 'w' && !exits.includes('west') ) {
             exits.push('west');
         }
     });
@@ -651,6 +653,11 @@ function loadFromUrl(url) {
 }
 
 function importWorldData(data, startLoc) {
+    objects = {};
+    npcs = {};
+    rooms = {};
+    inventory = [];
+
     const lines = data.split('\n');
     var inRoom = false;
     var inObject = false;
@@ -766,6 +773,13 @@ function drop(cmd) {
     }
 }
 
+function take(key) {
+    if(objects[key] !== undefined && inventory.includes(key)) {
+        inventory.splice(inventory.indexOf(key),1);
+        updateOutput(objects[key].name + ' removed from inventory.');
+    }
+}
+
 function showInventory() {
     var out = '';
     inventory.forEach(o => {
@@ -792,6 +806,8 @@ function debug() {
 
 if(window.location.search.startsWith('?load=')) {
     loadFromUrl(window.location.search.substr(6));
+    window.history.pushState({}, document.title, window.location.pathname);
+    saveState()
 } else if(localStorage.getItem(lsWorld)) {
     updateOutput('Loading world from storage');
     importWorldData(localStorage.getItem(lsWorld),localStorage.getItem(lsLoc));
